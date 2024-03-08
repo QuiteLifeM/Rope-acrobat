@@ -6,31 +6,13 @@ public class Mover : MonoBehaviour
     [SerializeField] private Vector3 _direction;
     [SerializeField] private float _speed;
     
-    private bool _isMoving = false;
-    
     public void SetMove()
     {
-        if (!_isMoving)
-        {
-            _isMoving = true;
-            StartCoroutine(MoveStraight());
-        }
-    }
-    
-    public void StopMove()
-    {
-        if (_isMoving)
-        {
-            _isMoving = false;
-        }
+        transform.Translate(_direction * (_speed * Time.deltaTime), Space.Self);
     }
 
-    private IEnumerator MoveStraight()
+    public void StopMove()
     {
-        while (_isMoving)
-        {
-            transform.Translate(_direction * (_speed * Time.deltaTime), Space.Self);
-            yield return null;
-        }
+        transform.Translate(Vector3.zero);
     }
 }

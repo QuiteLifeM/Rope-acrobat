@@ -9,11 +9,6 @@ public class Controller : MonoBehaviour
     [SerializeField] private Mover _mover;
     [SerializeField] private RopeAbility _ropeAbility;
 
-    private void Start()
-    {
-        _mover.SetMove();
-    }
-
     private void Update()
     {
         GetInput();
@@ -23,12 +18,13 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            print("пробел нажат");
             _mover.StopMove();
             _ropeAbility.StartSpin();
         }
-        
-        _mover.SetMove();
-        _ropeAbility.StopSpin();
+        else
+        {
+            _mover.SetMove();
+            _ropeAbility.StopSpin();
+        }
     }
 }
