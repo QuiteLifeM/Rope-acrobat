@@ -21,11 +21,14 @@ public class Controller : MonoBehaviour
 
     private void GetInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             print("пробел нажат");
             _mover.StopMove();
             _ropeAbility.StartSpin();
         }
+        
+        _mover.SetMove();
+        _ropeAbility.StopSpin();
     }
 }

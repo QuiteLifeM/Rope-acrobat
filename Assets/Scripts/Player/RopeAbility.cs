@@ -36,6 +36,14 @@ public class RopeAbility : MonoBehaviour
             StartCoroutine(Spin());
         }
     }
+
+    public void StopSpin()
+    {
+        if (_isSpinning)
+        {
+            _isSpinning = false;
+        }
+    }
     
     private IEnumerator Spin()
     {
